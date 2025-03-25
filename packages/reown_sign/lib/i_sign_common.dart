@@ -24,6 +24,7 @@ abstract class IReownSignCommon {
   abstract final IGenericStore<AuthPublicKey> authKeys;
   abstract final IPairingStore pairings;
   abstract final IGenericStore<String> pairingTopics;
+  abstract final IGenericStore<StoredCacao> completeRequests;
 
   Future<void> init();
   Future<void> disconnectSession({

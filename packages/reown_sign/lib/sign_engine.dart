@@ -73,6 +73,7 @@ class ReownSign implements IReownSign {
   @override
   late IGenericStore<String> pairingTopics;
 
+  @override
   IGenericStore<StoredCacao> completeRequests;
 
   // NEW 1-CA METHOD

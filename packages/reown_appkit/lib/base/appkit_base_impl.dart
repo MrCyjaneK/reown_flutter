@@ -165,6 +165,10 @@ class ReownAppKit implements IReownAppKit {
   ISessions get sessions => reOwnSign.sessions;
 
   @override
+  IGenericStore<StoredCacao> get completeRequests =>
+      reOwnSign.completeRequests;
+
+  @override
   IGenericStore<SessionRequest> get pendingRequests =>
       reOwnSign.pendingRequests;
 
