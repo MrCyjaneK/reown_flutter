@@ -126,6 +126,14 @@ class ReownSignClient implements IReownSignClient {
           return PendingSessionAuthRequest.fromJson(value);
         },
       ),
+      completeRequests: GenericStore(
+        storage: core.storage,
+        context: StoreVersions.CONTEXT_COMPLETE_REQUESTS,
+        version: StoreVersions.VERSION_COMPLETE_REQUESTS,
+        fromJson: (dynamic value) {
+          return StoredCacao.fromJson(value);
+        },
+      ),
     );
   }
 

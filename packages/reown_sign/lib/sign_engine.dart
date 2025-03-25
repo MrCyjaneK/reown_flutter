@@ -73,6 +73,8 @@ class ReownSign implements IReownSign {
   @override
   late IGenericStore<String> pairingTopics;
 
+  IGenericStore<StoredCacao> completeRequests;
+
   // NEW 1-CA METHOD
   @override
   late IGenericStore<PendingSessionAuthRequest> sessionAuthRequests;
@@ -94,6 +96,7 @@ class ReownSign implements IReownSign {
     required this.sessionAuthRequests,
     required this.authKeys,
     required this.pairingTopics,
+    required this.completeRequests,
   });
 
   @override
@@ -2345,14 +2348,14 @@ class ReownSign implements IReownSign {
         }
 
         // This is used on Auth request, would it be needed on 1-CA?
-        // await completeRequests.set(
-        //   id.toString(),
-        //   StoredCacao.fromCacao(
-        //     id: id,
-        //     pairingTopic: pairingTopic,
-        //     cacao: cacao,
-        //   ),
-        // );
+        await completeRequests.set(
+          id.toString(),
+          StoredCacao.fromCacao(
+            id: id,
+            pairingTopic: pairingTopic,
+            cacao: cacao,
+          ),
+        );
 
         final CacaoPayload payload = cacao.p;
         final chainId = AddressUtils.getDidChainId(payload.iss);
